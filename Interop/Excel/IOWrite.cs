@@ -17,14 +17,17 @@ namespace Excel
 			try
 			{
 				//Подготовка
-				excel = InteropExcel.Application ();
-
+				excel = new InteropExcel.ApplicationClass ();
 				if (excel == null) return false;
+
+				excel.Visible = false;
 
 				InteropExcel.Workbook workbook = excel.Workbooks.Add ();
 				if (workbook == null) return false;
 
-
+				InteropExcel.Worksheet sheet = (InteropExcel.Worksheet) workbook.Worksheets [1];
+				sheet.Name = "Таблица 1";
+					
 				//Попълване на таблицата
 
 
@@ -34,7 +37,7 @@ namespace Excel
 
 				excel.DisplayAlerts = false; //Изключваме съобщенията на Ексел
 				workbook.Close ();
-				Excel.Quit ();
+				//Excel.Quit ();
 
 				return true;				
 			}catch{
