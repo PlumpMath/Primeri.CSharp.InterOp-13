@@ -1,10 +1,12 @@
 ﻿using System;
+using InteropExcel = Microsoft.Office.Interop.Excel;
 
 namespace Excel
 {
 	public class IOWrite
 	{
 		private DataStruct _data;
+		private InteropExcel.Application Excel;
 
 		public IOWrite (DataStruct data)
 		{
@@ -30,7 +32,7 @@ namespace Excel
 			}catch{
 			}
 		}
-		public void run.File ()
+		public void runFile ()
 		{
 			try {
 				System.Diagnostics.Process.Start (getPath() );
